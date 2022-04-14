@@ -7,15 +7,6 @@ const name = '汽车签到'
 let UA
 const $ = new Env('京东签到');
 let cookiesArr = [], cookie = '', message = '', allMessage = '';
-if ($.isNode()) {
-  Object.keys(jdCookieNode).forEach((item) => {
-    cookiesArr.push(jdCookieNode[item])
-  })
-  if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
-  if (JSON.stringify(process.env).indexOf('GITHUB') > -1) process.exit(0)
-} else {
-  cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
-}
 
 function oc(fn, defaultVal) { //optioanl chaining
     try {
