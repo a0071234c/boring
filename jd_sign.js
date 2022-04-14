@@ -180,7 +180,7 @@ async function all(cookie, jrBody) {
         //JDUserSignPre(stop, 'JDVege', '京东商城-菜场', 'Wcu2LVCFMkBP3HraRvb7pgSpt64'), //京东菜场
         // JDUserSignPre(stop, 'JDLive', '京东智能-生活', 'KcfFqWvhb5hHtaQkS4SD1UU6RcQ') //京东智能生活
       ]);
-      await JingRongDoll(stop, 'JDDouble', '金融京豆-双签', 'F68B2C3E71', '', '', '', 'jingdou'); //京东金融 京豆双签
+      //await JingRongDoll(stop, 'JDDouble', '金融京豆-双签', 'F68B2C3E71', '', '', '', 'jingdou'); //京东金融 京豆双签
       break;
     default:
       await JingDongBean(0); //京东京豆
@@ -230,11 +230,11 @@ async function all(cookie, jrBody) {
       break;
   }
   await Promise.all([
-    TotalSteel(), //总钢镚查询
-    TotalCash(), //总红包查询
+    //TotalSteel(), //总钢镚查询
+    //TotalCash(), //总红包查询
     TotalBean(), //总京豆查询
-    TotalSubsidy(), //总金贴查询
-    TotalMoney() //总现金查询
+    //TotalSubsidy(), //总金贴查询
+    //TotalMoney() //总现金查询
   ]);
   await notify(); //通知模块
 }
