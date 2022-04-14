@@ -6,6 +6,7 @@ const $ = new Env('汽车签到');
 // const name = '汽车签到'
 let UA
 const $ = new Env('签到');
+const USER_AGENT = `jdapp;iPhone;10.2.0;${Math.ceil(Math.random()*4+10)}.${Math.ceil(Math.random()*4)};${randPhoneId()};network/4g;model/iPhone11,8;addressid/1188016812;appBuild/167724;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS ${getRandomIntInclusive(11, 14)}_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1`;
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
@@ -42,7 +43,8 @@ Object.keys(jdCookieNode).forEach((item) => {
             cookie = cookiesArr[i]
             const UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
             console.log(`\n******开始【京东账号${i + 1}】${UserName}*********\n`);
-            UA = process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : USER_AGENT
+            UA = USER_AGENT
+            console.log(UA)
             await main()
         }
         if (i != cookiesArr.length - 1) {
@@ -139,9 +141,6 @@ function randPhoneId() {
         Math.random().toString(36).slice(2, 10) +
         Math.random().toString(36).slice(2, 10);
 }
-
-const USER_AGENT = `jdapp;iPhone;10.2.0;${Math.ceil(Math.random()*4+10)}.${Math.ceil(Math.random()*4)};${randPhoneId()};network/4g;model/iPhone11,8;addressid/1188016812;appBuild/167724;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS ${getRandomIntInclusive(11, 14)}_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1`;
-
 
 
 // prettier-ignore
