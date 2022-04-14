@@ -5,6 +5,7 @@ const $ = new Env('汽车签到');
 */
 const name = '汽车签到'
 let UA
+const $ = new Env('京东签到');
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
