@@ -90,7 +90,7 @@ async function signBeanIndex() {
     const { body } = await got.post(options)
     $.post(taskUrl(), function(boby){
       console.log('==============================================')
-      console.log(${boby})
+      console.log('${boby}')
       console.log('===============================================')
       const data = JSON.parse(body)
           
