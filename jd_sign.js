@@ -89,7 +89,9 @@ async function signBeanIndex() {
     }
     const { body } = await got.post(options)
     $.post(taskUrl(), function(boby){
-      
+      console.log('==============================================')
+      console.log(${boby})
+      console.log('===============================================')
       const data = JSON.parse(body)
           
       let title = oc(() => data.data.dailyAward.title) || oc(() => data.data.continuityAward.title)
