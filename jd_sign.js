@@ -88,14 +88,19 @@ async function signBeanIndex() {
         body: "functionId=signBeanIndex&appid=ld"
     }
     const { body } = await got.post(options)
-    const data = JSON.parse(body)
-
-    let title = oc(() => data.data.dailyAward.title) || oc(() => data.data.continuityAward.title)
-    let bean = oc(() => data.data.dailyAward.beanAward.beanCount) || oc(() => data.data.continuityAward.beanAward.beanCount)
-    console.log('===========签到完成============')
-    if (bean) {
-        console.log(`${title} 获得${bean}京豆`)
+    $.post(taskUrl(), function(boby){
+      
+      const data = JSON.parse(body)
+          
+      let title = oc(() => data.data.dailyAward.title) || oc(() => data.data.continuityAward.title)
+      let bean = oc(() => data.data.dailyAward.beanAward.beanCount) || oc(() => data.data.continuityAward.beanAward.beanCount)
+      console.log('===========签到完成============')
+      if (bean) {
+      console.log(`${title} 获得${bean}京豆`)
     }
+    })
+
+
 }
 
 function jsonParse(str) {
@@ -141,6 +146,20 @@ function randPhoneId() {
         Math.random().toString(36).slice(2, 10) +
         Math.random().toString(36).slice(2, 10) +
         Math.random().toString(36).slice(2, 10);
+}
+
+function taskUrl(body) {
+  return {
+    url: `https://api.m.jd.com/client.action`,
+    body: "functionId=signBeanIndex&appid=ld"
+    headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            'Host': `api.m.jd.com`,
+            'Origin': 'https://api.m.jd.com',
+            'Referer': `https://api.m.jd.com`,
+            'Cookie': cookie
+    },
+  }
 }
 
 
