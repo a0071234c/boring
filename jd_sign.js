@@ -69,6 +69,7 @@ function wait(time) {
 async function main() {
     await signBeanIndex()
     await wait(3000)
+    console.log(`===========签到完成============`)
 }
 
 async function signBeanIndex() {
