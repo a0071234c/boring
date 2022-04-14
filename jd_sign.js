@@ -5,6 +5,7 @@ const $ = new Env('汽车签到');
 */
 // const name = '汽车签到'
 let UA
+const got = require('got')
 const $ = new Env('签到');
 const USER_AGENT = `jdapp;iPhone;10.2.0;${Math.ceil(Math.random()*4+10)}.${Math.ceil(Math.random()*4)};${randPhoneId()};network/4g;model/iPhone11,8;addressid/1188016812;appBuild/167724;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS ${getRandomIntInclusive(11, 14)}_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1`;
 const notify = $.isNode() ? require('./sendNotify') : '';
