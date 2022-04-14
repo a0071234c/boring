@@ -356,6 +356,10 @@ function JingDongBean(s) {
       const JDBUrl = {
         url: 'https://api.m.jd.com/client.action',
         headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          'Host': `api.m.jd.com`,
+          'Origin': 'https://api.m.jd.com',
+          'Referer': `https://api.m.jd.com`,
           Cookie: KEY
         },
         body: 'functionId=signBeanIndex&appid=ld'
